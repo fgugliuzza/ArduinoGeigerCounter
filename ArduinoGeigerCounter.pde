@@ -27,15 +27,15 @@
 #define GEIGER_INTERRUPT 0
 
 /* Variables accessed by interrupt handlers must be volatile */
-volatile long pulseCount;
-int endMillis;
+volatile unsigned int pulseCount;
+unsigned long endMillis;
 
 void countPulse() {
   pulseCount++;
 }
 
-inline long getCount() {
-  long pulseCountTmp;
+inline unsigned int getCount() {
+  unsigned int pulseCountTmp;
   
   /*
    * Disable interrupts to make sure we access critical section
